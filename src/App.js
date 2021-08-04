@@ -2,9 +2,8 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <div></div>
-
+    <div className="app">
+      <h1>Hello This is my amazon Clone {`<3`}</h1>
 
     </div>
   );
