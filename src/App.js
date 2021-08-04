@@ -1,9 +1,10 @@
 import './App.css';
+import Header from './header-components/Header.js';
 
 function App() {
   return (
     <div className="app">
-      <h1>Hello This is my amazon Clone {`<3`}</h1>
+      <Header />
 
     </div>
   );
