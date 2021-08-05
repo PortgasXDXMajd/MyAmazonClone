@@ -16,13 +16,21 @@ function Checkout() {
                     src="https://a.storyblok.com/f/67091/500x200/6041c3b2da/amazon-ads.png"
                     alt="ad"/>
                 
-                <div className="checkout_title">Your Shopping Cart</div>
+                {basket.length > 0? 
+                (
+                    <>
+                        <div className="checkout_title">Your Shopping Cart</div>
+                        {basket.map((item)=>(
+                            <CheckoutProduct product={item}/>
+                        ))}
+                    </>
+                )
+                :(
+                    <div className="checkout_title">Your Shopping Cart is Empty</div>
+                )}
 
-                {basket.map((item)=>(
-                    <CheckoutProduct item={item}/>
-                ))}
             </div>
-
+            
             <div className="checkout_right">
                 <SubTotal />
             </div>
