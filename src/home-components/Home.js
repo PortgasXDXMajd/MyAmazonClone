@@ -1,17 +1,9 @@
 import React from 'react';
+import { products } from '../DummyData/Data';
 import Product from '../product-components/Product';
 import './Home.css';
 
 function Home() {
-    const product = {
-        id: 1,
-        name: "Stereo Gaming Headset",
-        description:"BENGOO G9000 Stereo Gaming Headset for PS4 PC Xbox One PS5 Controller",
-        prise: 29.99,
-        imageUrl:"https://m.media-amazon.com/images/I/61CGHv6kmWL._AC_UL320_.jpg",
-        rate:4
-    };
-
     return (
         <div className="home">
             
@@ -22,18 +14,18 @@ function Home() {
             />
 
             <div className="home_row">
-                <Product product={product} />
-                <Product product={product} />
+                <Product product={products[0]} />
+                <Product product={products[1]} />
             </div>
 
             <div className="home_row">
-                <Product product={product} />
-                <Product product={product} />
-                <Product product={product} />
+                <Product product={products[2]} />
+                <Product product={products[3]} />
+                <Product product={products[4]} />
             </div>
 
             <div className="home_row">
-                <Product product={product} />
+                <Product product={products[5]} />
             </div>
 
         </div>

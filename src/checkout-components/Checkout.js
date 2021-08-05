@@ -21,10 +21,7 @@ function Checkout() {
                 {basket.map((item)=>(
                     <CheckoutProduct item={item}/>
                 ))}
-
-                
             </div>
-
 
             <div className="checkout_right">
                 <SubTotal />
