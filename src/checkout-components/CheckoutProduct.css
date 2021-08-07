@@ -4,8 +4,15 @@
   width: 100%;
   padding: 10px;
   background-color: white;
-  border-bottom: 1px solid lightgray;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   overflow: hidden;
+  margin-bottom: 30px;
+  padding: auto;
+}
+.checkoutProduct:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
 }
 .checkoutProduct > img {
   max-height: 200px;

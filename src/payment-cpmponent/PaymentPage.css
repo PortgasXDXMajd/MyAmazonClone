@@ -1,0 +1,33 @@
+.paymentPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.paymentPage_Container {
+  background-color: white;
+  width: 90%;
+  height: fit-content;
+  padding: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 20px;
+}
+
+.paymentPage_section {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid lightgrey;
+}
+.paymentPage_LeftSection {
+  font-size: 18px;
+  font-weight: 500;
+  width: 150px;
+}
+.paymentPage_RightSection {
+  margin-left: 30px;
+  flex: 1;
+  font-weight: 300;
+}
