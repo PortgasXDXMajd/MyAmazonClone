@@ -7,21 +7,26 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
+import LoginPage from './authentication-components/LoginPage';
 
 
 function App() {
   return (
     <Router>
       <div className="app">
-        <Header />
-
         <Switch> 
            
           <Route exact path="/">
+            <Header />
             <Home />
           </Route>
 
+          <Route exact path="/login">
+            <LoginPage />
+          </Route>
+
           <Route exact path="/checkout">
+            <Header />
             <Checkout/>
           </Route>
         
