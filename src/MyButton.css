@@ -1,7 +1,16 @@
 .myButton {
+  min-width: 150px;
   background: #f0c14b;
-  border: 1px solid;
+  border-radius: 10px;
+  height: 30px;
+  border: 1px solid lightgray;
   margin-top: 10px;
   color: #000;
-  border-color: #a88734 #9c7e31 #846a29;
+  border: none;
+  transition: all 0.3s;
+}
+
+.myButton:hover {
+  color: #fff;
+  min-width: 200px;
 }
