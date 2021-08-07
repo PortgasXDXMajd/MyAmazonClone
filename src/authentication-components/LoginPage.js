@@ -5,12 +5,14 @@ import {Link} from 'react-router-dom';
 function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
     const signIn = (e) => {
         e.preventDefault();
         console.log({email})
         console.log({password})
 
     };
+    
     const register = (e) => {
         e.preventDefault();
         console.log('Register')
