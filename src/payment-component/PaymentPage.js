@@ -5,12 +5,12 @@ import CheckoutProduct from '../checkout-components/CheckoutProduct';
 import {CardElement, useStripe, useElements} from "@stripe/react-stripe-js";
 import CurrencyFormat from 'react-currency-format';
 import { getTotalBasket } from '../state-provider/reducer';
-import axios from 'axios';
+import instance from '../axios/axios.js';
 import {useHistory} from 'react-router-dom';
 
 function PaymentPage() {
     const history = useHistory();
-    const [{basket ,user},] = useStateValue();
+    const [{basket ,user},dispatch] = useStateValue();
     const [error, setError] = useState("Error");
     const [disabled, setDisabled] = useState(false);
     const [processing, setProcessing] = useState(false);
@@ -20,21 +20,25 @@ function PaymentPage() {
     const elements = useElements();
 
     useEffect(() => {
-        const getClientSecret = async ()=>{
-            const response = await axios({
+        // generate the special stripe secret which allows us to charge a customer
+        const getClientSecret = async () => {
+            const response = await instance({
                 method: 'post',
-                url:`/payments/create?total=${getTotalBasket(basket) * 100}`
+                // Stripe expects the total in a currencies subunits
+                url: `/payments/create?total=${getTotalBasket(basket) * 100}`
             });
-            setClientSecret(response.data.clientSecret);
+            setClientSecret(response.data.clientSecret)
         }
 
         getClientSecret();
     }, [basket])
 
+    console.log('THE SECRET IS >>>', clientSecret)
+
     const handleSubmit = async (event)=>{
         event.preventDefault();
         setProcessing(true);
-        const payload = await stripe.confirmCardPayment(clientSecret,{
+        await stripe.confirmCardPayment(clientSecret,{
             payment_method:{
                 card: elements.getElement(CardElement)
             }
@@ -43,6 +47,11 @@ function PaymentPage() {
             setSucceeded(true);
             setError(null);
             setProcessing(false);
+
+            dispatch({
+                type:'EMPTY_BASKET'
+            });
+
             history.replace('/orders')
         })
 

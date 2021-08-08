@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect} from 'react';
 import './App.css';
 import Header from './header-components/Header.js';
@@ -7,9 +8,10 @@ import {auth} from './firebase';
 import {  BrowserRouter as Router,  Route,  Switch} from 'react-router-dom';
 import LoginPage from './authentication-components/LoginPage';
 import { useStateValue } from './state-provider/StateProvider';
-import PaymentPage from './payment-cpmponent/PaymentPage';
+import PaymentPage from './payment-component/PaymentPage';
 import {loadStripe} from "@stripe/stripe-js";
 import {Elements} from "@stripe/react-stripe-js";
+import OrderPage from './ordersPage-components/OrderPage';
 
 const promise = loadStripe("pk_test_51JM7WVKzG6PGdC810XLy9jeTjAyFovVSm20XnVqyJ4VFCDa3At90ne6owaCbCthAKGNTug82vNwgUBVDpyeXxvjX00zlbFvE2N");
 
@@ -40,25 +42,30 @@ function App() {
       <div className="app">
         <Switch> 
            
-          <Route exact path="/">
-            <Header />
-            <Home />
-          </Route>
-
-          <Route exact path="/login">
+          <Route path="/login">
             <LoginPage />
           </Route>
 
-          <Route exact path="/payment">
+          <Route path="/payment">
             <Header />
             <Elements stripe={promise}>
               <PaymentPage />
             </Elements>
           </Route>
 
-          <Route exact path="/checkout">
+          <Route path="/checkout">
             <Header />
             <Checkout/>
+          </Route>
+
+          <Route path="/orders">
+            <Header />
+            <OrderPage />
+          </Route>
+
+          <Route path="/">
+            <Header />
+            <Home />
           </Route>
         
         </Switch>
