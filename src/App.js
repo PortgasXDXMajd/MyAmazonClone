@@ -8,7 +8,10 @@ import {  BrowserRouter as Router,  Route,  Switch} from 'react-router-dom';
 import LoginPage from './authentication-components/LoginPage';
 import { useStateValue } from './state-provider/StateProvider';
 import PaymentPage from './payment-cpmponent/PaymentPage';
+import {loadStripe} from "@stripe/stripe-js";
+import {Elements} from "@stripe/react-stripe-js";
 
+const promise = loadStripe("pk_test_51JM7WVKzG6PGdC810XLy9jeTjAyFovVSm20XnVqyJ4VFCDa3At90ne6owaCbCthAKGNTug82vNwgUBVDpyeXxvjX00zlbFvE2N");
 
 function App() {
   const [{user}, dispatch] = useStateValue();
@@ -48,7 +51,9 @@ function App() {
 
           <Route exact path="/payment">
             <Header />
-            <PaymentPage />
+            <Elements stripe={promise}>
+              <PaymentPage />
+            </Elements>
           </Route>
 
           <Route exact path="/checkout">

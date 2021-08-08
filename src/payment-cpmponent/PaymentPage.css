@@ -31,3 +31,50 @@
   flex: 1;
   font-weight: 300;
 }
+.card_elements {
+  margin-top: 20px;
+  padding-top: 10px;
+  min-width: 350px;
+  max-width: 450px;
+}
+
+.paymentPage_TotalOrder {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 30px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  min-width: 350px;
+  max-width: 450px;
+}
+
+.paymentTotal_header {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.totalOrder_BuyButton {
+  min-width: 150px;
+  background: #f0c14b;
+  border-radius: 10px;
+  height: 30px;
+  border: 1px solid lightgray;
+  margin-top: 20px;
+  color: #000;
+  border: none;
+  transition: all 0.3s;
+}
+
+.totalOrder_BuyButton:hover {
+  color: #fff;
+  min-width: 200px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
