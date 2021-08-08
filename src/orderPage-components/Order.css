@@ -12,8 +12,6 @@
   align-items: center;
   justify-content: space-between;
 }
-.order > h2 {
-}
 
 .order_info {
   display: flex;
