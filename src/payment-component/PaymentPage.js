@@ -82,7 +82,7 @@ function PaymentPage() {
                     
                     <div className="paymentPage_RightSection">
                         <p>{user?.email}</p>
-                        <p>Am Weissenberg 18 APP 122</p>
+                        <p>Am Location 18 APP 122</p>
                         <p>Aachen Germany</p>
                     </div>
                 </div>
