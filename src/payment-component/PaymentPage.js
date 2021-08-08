@@ -7,11 +7,12 @@ import CurrencyFormat from 'react-currency-format';
 import { getTotalBasket } from '../state-provider/reducer';
 import instance from '../axios/axios.js';
 import {useHistory} from 'react-router-dom';
+import { db } from '../firebase';
 
 function PaymentPage() {
     const history = useHistory();
     const [{basket ,user},dispatch] = useStateValue();
-    const [error, setError] = useState("Error");
+    const [error, setError] = useState("");
     const [disabled, setDisabled] = useState(false);
     const [processing, setProcessing] = useState(false);
     const [succeeded, setSucceeded] = useState(false);
@@ -43,7 +44,17 @@ function PaymentPage() {
                 card: elements.getElement(CardElement)
             }
         }).then(({paymentIntent})=>{
-            //paymentIntent - payment confirmation
+            db
+            .collection('users')
+            .doc(user?.id)
+            .collection('orders')
+            .doc(paymentIntent.id)
+            .set({
+                basket: basket,
+                amount:paymentIntent.amount,
+                created: paymentIntent.created,
+            });
+
             setSucceeded(true);
             setError(null);
             setProcessing(false);
