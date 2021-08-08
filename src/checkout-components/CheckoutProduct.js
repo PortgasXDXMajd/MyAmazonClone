@@ -4,7 +4,7 @@ import ProductInfo from '../product-components/ProductInfo';
 import MyButton from '../MyButton.js';
 import { useStateValue } from '../state-provider/StateProvider';
 
-function CheckoutProduct({product}) {
+function CheckoutProduct({product, isButtonNeeded = true}) {
     const [,dispatch] = useStateValue();
 
     const removeProductFromBasket = ()=>{
@@ -21,7 +21,8 @@ function CheckoutProduct({product}) {
                 alt={product?.name}/>
 
             <ProductInfo product={product}>
-                <MyButton onPress={removeProductFromBasket} label="Remove From Cart" />
+                {isButtonNeeded? <MyButton onPress={removeProductFromBasket} label="Remove From Cart" />:""}
+
             </ProductInfo>
         </div>
     )

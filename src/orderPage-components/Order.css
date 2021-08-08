@@ -1,0 +1,29 @@
+.order {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: white;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  height: fit-content;
+}
+.order_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.order > h2 {
+}
+
+.order_info {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.order_Items {
+  width: 95%;
+  padding: 20px;
+}

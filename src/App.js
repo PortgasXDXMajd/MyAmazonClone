@@ -11,7 +11,7 @@ import { useStateValue } from './state-provider/StateProvider';
 import PaymentPage from './payment-component/PaymentPage';
 import {loadStripe} from "@stripe/stripe-js";
 import {Elements} from "@stripe/react-stripe-js";
-import OrderPage from './ordersPage-components/OrderPage';
+import OrderPage from './orderPage-components/OrderPage';
 
 const promise = loadStripe("pk_test_51JM7WVKzG6PGdC810XLy9jeTjAyFovVSm20XnVqyJ4VFCDa3At90ne6owaCbCthAKGNTug82vNwgUBVDpyeXxvjX00zlbFvE2N");
 
